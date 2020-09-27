@@ -1,6 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:text="@string/welcome" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/instructions_text" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/your_all_time_statistics" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="@string/win" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="@string/draw" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="@string/loose" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:src="@drawable/rock"
+                android:background="@android:color/holo_blue_light"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/vs"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="36sp" />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:src="@drawable/rock"
+                android:background="@android:color/holo_blue_light"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/rock"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:backgroundTintMode="add" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/paper"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:backgroundTintMode="add" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/scissors"
+            android:backgroundTint="@android:color/holo_blue_light"
+            android:backgroundTintMode="add" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
