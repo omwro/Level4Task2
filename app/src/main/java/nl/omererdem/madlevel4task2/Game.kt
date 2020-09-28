@@ -3,6 +3,7 @@ package nl.omererdem.madlevel4task2
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "gameTable")
 class Game(
@@ -17,8 +18,8 @@ class Game(
     var answerPc: Int,
 
     @ColumnInfo(name = "created_on")
-    var createdOn: Int,
+    var createdOn: Date,
 
     @ColumnInfo(name = "result")
-    var result: Boolean
+    var result: Int
 )
