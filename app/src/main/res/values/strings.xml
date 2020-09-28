@@ -7,4 +7,9 @@
     <string name="loose">Loose: 0</string>
     <string name="draw">Draw: 0</string>
     <string name="vs">V.S.</string>
+    <string name="computer">Computer</string>
+    <string name="you">You</string>
+    <string name="placeholder_text">Placeholder Text</string>
+    <string name="pc_result_img">pc result img</string>
+    <string name="you_result_img">You result img</string>
 </resources>
