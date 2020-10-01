@@ -1,6 +1,7 @@
 package nl.omererdem.madlevel4task2
 
 import android.content.Context
+import nl.omererdem.madlevel4task2.model.Game
 
 class GameRepository(context: Context) {
     private val gameDao: GameDao

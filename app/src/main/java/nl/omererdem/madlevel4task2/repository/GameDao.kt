@@ -1,6 +1,7 @@
 package nl.omererdem.madlevel4task2
 
 import androidx.room.*
+import nl.omererdem.madlevel4task2.model.Game
 
 @Dao
 interface GameDao {

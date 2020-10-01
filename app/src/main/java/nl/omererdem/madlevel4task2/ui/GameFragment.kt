@@ -1,4 +1,4 @@
-package nl.omererdem.madlevel4task2
+package nl.omererdem.madlevel4task2.activity
 
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +11,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.time.*
+import nl.omererdem.madlevel4task2.*
+import nl.omererdem.madlevel4task2.model.Game
 import java.util.*
 
 class GameFragment : Fragment() {

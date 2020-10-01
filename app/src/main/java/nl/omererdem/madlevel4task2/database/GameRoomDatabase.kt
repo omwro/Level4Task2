@@ -2,7 +2,7 @@ package nl.omererdem.madlevel4task2
 
 import android.content.Context
 import androidx.room.*
-import nl.omererdem.madlevel4task2.Converters
+import nl.omererdem.madlevel4task2.model.Game
 
 @Database(entities = [Game::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
