@@ -1,11 +1,11 @@
 package nl.omererdem.madlevel4task2
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
+import nl.omererdem.madlevel4task2.Converters
 
 @Database(entities = [Game::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class GameRoomDatabase : RoomDatabase() {
 
     abstract fun gameDao(): GameDao
