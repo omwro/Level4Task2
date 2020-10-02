@@ -1,4 +1,4 @@
-package nl.omererdem.madlevel4task2.activity
+package nl.omererdem.madlevel4task2.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +13,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import nl.omererdem.madlevel4task2.*
 import nl.omererdem.madlevel4task2.model.Game
+import nl.omererdem.madlevel4task2.model.Handmove
+import nl.omererdem.madlevel4task2.model.Handmove.*
+import nl.omererdem.madlevel4task2.model.Result
+import nl.omererdem.madlevel4task2.repository.GameRepository
+import nl.omererdem.madlevel4task2.utils.GameAdapter
+import nl.omererdem.madlevel4task2.utils.resultStringMap
 import java.util.*
 
 class GameFragment : Fragment() {
@@ -37,36 +43,35 @@ class GameFragment : Fragment() {
 
     private fun initView() {
         btnRock.setOnClickListener {
-            play(0)
+            play(ROCK)
         }
         btnPaper.setOnClickListener {
-            play(1)
+            play(PAPER)
         }
         btnScissor.setOnClickListener {
-            play(2)
+            play(SCISSOR)
         }
     }
 
-    private fun play(answerUser: Int) {
-        Log.i("DEBUG BUTTON", "Test")
-        val answerPc = (0..3).random()
+    private fun play(answerUser: Handmove) {
+        val answerPc = listOf(ROCK, PAPER, SCISSOR).random()
         
         val result = gameDecider(answerUser, answerPc)
-        val game = Game(null, answerUser, answerPc, Calendar.getInstance().time, result)
-
+        val game = Game(null, answerUser.getId(), answerPc.getId(), Calendar.getInstance().time, result.getId())
+        Log.i("Play", game.toString())
         saveGame(game)
         updateView(game)
     }
 
-    private fun gameDecider(answerUser: Int, answerPc: Int): Int {
-        if ((answerUser == 0 && answerPc == 2) ||
-            (answerUser == 1 && answerPc == 0) ||
-            (answerUser == 2 && answerPc == 1)) {
-            return 0
+    private fun gameDecider(answerUser: Handmove, answerPc: Handmove): Result {
+        if ((answerUser == ROCK && answerPc == SCISSOR) ||
+            (answerUser == PAPER && answerPc == ROCK) ||
+            (answerUser == SCISSOR && answerPc == PAPER)) {
+            return Result.WON
         } else if (answerUser == answerPc) {
-            return 1
+            return Result.DRAW
         } else {
-            return 2
+            return Result.LOST
         }
     }
 
@@ -79,12 +84,13 @@ class GameFragment : Fragment() {
     }
 
     private fun updateView(game: Game) {
-        tvResult.text = resultStringMap[game.result]
-        imgPcResult.setImageResource(
-            imagesMap[game.answerPc] ?: error(R.string.internal_error.toString())
-        )
-        imgYouResult.setImageResource(
-            imagesMap[game.answerUser] ?: error(R.string.internal_error.toString())
-        )
+        val resulttxt = Result.findResult(game.result)
+        val answerPcImage = Handmove.findHandmove(game.answerPc)
+        val answerUserImage = Handmove.findHandmove(game.answerUser)
+        if (resulttxt != null && answerPcImage != null && answerUserImage != null) {
+            tvResult.text = resulttxt.getString()
+            imgPcResult.setImageResource(answerPcImage.getImage())
+            imgYouResult.setImageResource(answerUserImage.getImage())
+        }
     }
 }

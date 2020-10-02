@@ -1,4 +1,4 @@
-package nl.omererdem.madlevel4task2
+package nl.omererdem.madlevel4task2.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -22,4 +22,8 @@ class Game(
 
     @ColumnInfo(name = "result")
     var result: Int
-)
+) {
+    override fun toString(): String {
+        return "Game(id=$id, answerUser=$answerUser, answerPc=$answerPc, createdOn=$createdOn, result=$result)"
+    }
+}

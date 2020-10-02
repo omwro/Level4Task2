@@ -1,4 +1,4 @@
-package nl.omererdem.madlevel4task2
+package nl.omererdem.madlevel4task2.utils
 
 import androidx.room.TypeConverter
 import java.util.*

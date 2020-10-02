@@ -1,6 +1,7 @@
-package nl.omererdem.madlevel4task2
+package nl.omererdem.madlevel4task2.repository
 
 import android.content.Context
+import nl.omererdem.madlevel4task2.database.GameRoomDatabase
 import nl.omererdem.madlevel4task2.model.Game
 
 class GameRepository(context: Context) {

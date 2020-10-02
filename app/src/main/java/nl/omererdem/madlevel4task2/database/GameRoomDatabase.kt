@@ -1,8 +1,10 @@
-package nl.omererdem.madlevel4task2
+package nl.omererdem.madlevel4task2.database
 
 import android.content.Context
 import androidx.room.*
+import nl.omererdem.madlevel4task2.utils.Converters
 import nl.omererdem.madlevel4task2.model.Game
+import nl.omererdem.madlevel4task2.repository.GameDao
 
 @Database(entities = [Game::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

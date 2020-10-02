@@ -1,4 +1,4 @@
-package nl.omererdem.madlevel4task2.activity
+package nl.omererdem.madlevel4task2.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

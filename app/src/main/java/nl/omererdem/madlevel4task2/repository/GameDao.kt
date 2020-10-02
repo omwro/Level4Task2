@@ -1,4 +1,4 @@
-package nl.omererdem.madlevel4task2
+package nl.omererdem.madlevel4task2.repository
 
 import androidx.room.*
 import nl.omererdem.madlevel4task2.model.Game
