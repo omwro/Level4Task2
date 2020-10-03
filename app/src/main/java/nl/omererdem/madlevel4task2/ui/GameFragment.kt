@@ -2,10 +2,10 @@ package nl.omererdem.madlevel4task2.ui
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_game.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,10 +17,10 @@ import nl.omererdem.madlevel4task2.model.Handmove
 import nl.omererdem.madlevel4task2.model.Handmove.*
 import nl.omererdem.madlevel4task2.model.Result
 import nl.omererdem.madlevel4task2.repository.GameRepository
-import nl.omererdem.madlevel4task2.utils.GameAdapter
 import java.util.*
 
 class GameFragment : Fragment() {
+    private lateinit var navController: NavController
     private lateinit var gamesRepository: GameRepository
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
@@ -34,8 +34,25 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = findNavController()
+        setHasOptionsMenu(true)
         gamesRepository = GameRepository(requireContext())
         initView()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.appbar_game, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.actionHistoryBtn -> {
+                navController.navigate(R.id.action_gameFragment_to_historyFragment)
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun initView() {
