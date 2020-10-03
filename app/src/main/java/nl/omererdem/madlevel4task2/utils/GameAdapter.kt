@@ -11,18 +11,6 @@ import nl.omererdem.madlevel4task2.model.Game
 import nl.omererdem.madlevel4task2.model.Handmove
 import nl.omererdem.madlevel4task2.model.Result
 
-val resultStringMap: Map<Int, String> = mapOf(
-    0 to R.string.you_won.toString(),
-    1 to R.string.you_draw.toString(),
-    2 to R.string.you_lost.toString()
-)
-
-val handmoveOptions: Map<Int, Int> = mapOf(
-    0 to R.drawable.rock,
-    1 to R.drawable.paper,
-    2 to R.drawable.scissors
-)
-
 class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun databind(game: Game) {
@@ -34,6 +22,8 @@ class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdap
                 itemView.tvResult.text = resulttxt.getString()
                 itemView.imgPcResult.setImageResource(pcResultImage.getImage())
                 itemView.imgYouResult.setImageResource(userResultImage.getImage())
+            } else {
+                Log.e("GameAdapter", "something goes wrong $game")
             }
         }
     }

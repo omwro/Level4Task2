@@ -18,14 +18,11 @@ import nl.omererdem.madlevel4task2.model.Handmove.*
 import nl.omererdem.madlevel4task2.model.Result
 import nl.omererdem.madlevel4task2.repository.GameRepository
 import nl.omererdem.madlevel4task2.utils.GameAdapter
-import nl.omererdem.madlevel4task2.utils.resultStringMap
 import java.util.*
 
 class GameFragment : Fragment() {
     private lateinit var gamesRepository: GameRepository
     private val mainScope = CoroutineScope(Dispatchers.Main)
-    private val games = arrayListOf<Game>()
-    private val gameAdapter = GameAdapter(games)
 
     override fun onCreateView(
         inflater: LayoutInflater,
