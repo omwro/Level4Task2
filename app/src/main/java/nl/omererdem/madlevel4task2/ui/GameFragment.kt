@@ -24,6 +24,10 @@ class GameFragment : Fragment() {
     private lateinit var gamesRepository: GameRepository
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
+    private var totalWins = 0
+    private var totalDraws = 0
+    private var totalLooses = 0
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -65,6 +69,8 @@ class GameFragment : Fragment() {
         btnScissor.setOnClickListener {
             play(SCISSOR)
         }
+
+        calculateStatistics()
     }
 
     private fun play(answerUser: Handmove) {
@@ -91,8 +97,9 @@ class GameFragment : Fragment() {
 
     private fun saveGame(game: Game) {
         mainScope.launch {
-            withContext(Dispatchers.IO) {
+            withContext(Dispatchers.Main) {
                 gamesRepository.insertGame(game)
+                calculateStatistics()
             }
         }
     }
@@ -105,6 +112,39 @@ class GameFragment : Fragment() {
             tvResult.text = resulttxt.getString()
             imgPcResult.setImageResource(answerPcImage.getImage())
             imgYouResult.setImageResource(answerUserImage.getImage())
+        }
+    }
+
+    private fun updateStatisticsView() {
+        tvStatWin.text = getString(R.string.win, totalWins)
+        tvStatDraw.text = getString(R.string.draw, totalDraws)
+        tvStatLost.text = getString(R.string.loose, totalLooses)
+    }
+
+    private fun calculateStatistics() {
+        totalWins = 0
+        totalDraws = 0
+        totalLooses = 0
+        mainScope.launch {
+            withContext(Dispatchers.Main) {
+                for (game in gamesRepository.getAllGames()) {
+                    val result = Result.findResult(game.result)
+                    if (result != null) {
+                        when (result) {
+                            Result.WON -> {
+                                this@GameFragment.totalWins++
+                            }
+                            Result.DRAW -> {
+                                this@GameFragment.totalDraws++
+                            }
+                            Result.LOST -> {
+                                this@GameFragment.totalLooses++
+                            }
+                        }
+                    }
+                }
+                updateStatisticsView()
+            }
         }
     }
 }

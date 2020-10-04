@@ -46,18 +46,21 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tvStatWin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:text="@string/win" />
 
             <TextView
+                android:id="@+id/tvStatDraw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:text="@string/draw" />
 
             <TextView
+                android:id="@+id/tvStatLost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
