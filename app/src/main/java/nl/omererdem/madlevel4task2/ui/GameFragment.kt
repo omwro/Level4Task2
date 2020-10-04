@@ -77,7 +77,7 @@ class GameFragment : Fragment() {
         val answerPc = listOf(ROCK, PAPER, SCISSOR).random()
         
         val result = gameDecider(answerUser, answerPc)
-        val game = Game(null, answerUser.getId(), answerPc.getId(), Calendar.getInstance().time, result.getId())
+        val game = Game(null, answerUser.getId(), answerPc.getId(), Calendar.getInstance().time, result)
         Log.i("Play", game.toString())
         saveGame(game)
         updateView(game)
@@ -105,11 +105,10 @@ class GameFragment : Fragment() {
     }
 
     private fun updateView(game: Game) {
-        val resulttxt = Result.findResult(game.result)
         val answerPcImage = Handmove.findHandmove(game.answerPc)
         val answerUserImage = Handmove.findHandmove(game.answerUser)
-        if (resulttxt != null && answerPcImage != null && answerUserImage != null) {
-            tvResult.text = resulttxt.getString()
+        if (answerPcImage != null && answerUserImage != null) {
+            tvResult.text = game.result.getString()
             imgPcResult.setImageResource(answerPcImage.getImage())
             imgYouResult.setImageResource(answerUserImage.getImage())
         }
@@ -128,18 +127,15 @@ class GameFragment : Fragment() {
         mainScope.launch {
             withContext(Dispatchers.Main) {
                 for (game in gamesRepository.getAllGames()) {
-                    val result = Result.findResult(game.result)
-                    if (result != null) {
-                        when (result) {
-                            Result.WON -> {
-                                this@GameFragment.totalWins++
-                            }
-                            Result.DRAW -> {
-                                this@GameFragment.totalDraws++
-                            }
-                            Result.LOST -> {
-                                this@GameFragment.totalLooses++
-                            }
+                    when (game.result) {
+                        Result.WON -> {
+                            this@GameFragment.totalWins++
+                        }
+                        Result.DRAW -> {
+                            this@GameFragment.totalDraws++
+                        }
+                        Result.LOST -> {
+                            this@GameFragment.totalLooses++
                         }
                     }
                 }

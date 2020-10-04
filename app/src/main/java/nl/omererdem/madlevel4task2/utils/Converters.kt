@@ -2,6 +2,7 @@ package nl.omererdem.madlevel4task2.utils
 
 import androidx.room.TypeConverter
 import java.util.*
+import nl.omererdem.madlevel4task2.model.Result
 
 class Converters {
     @TypeConverter
@@ -12,5 +13,15 @@ class Converters {
     @TypeConverter
     fun dateToTimestamp(date: Date?): Long? {
         return date?.time?.toLong()
+    }
+
+    @TypeConverter
+    fun fromResult(value: Result?): Int? {
+        return value?.getId()
+    }
+
+    @TypeConverter
+    fun toResult(value: Int?): Result? {
+        return value?.let { Result.findResult(it) }
     }
 }

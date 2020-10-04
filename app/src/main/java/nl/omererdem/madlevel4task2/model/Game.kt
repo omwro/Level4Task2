@@ -21,7 +21,7 @@ class Game(
     var createdOn: Date,
 
     @ColumnInfo(name = "result")
-    var result: Int
+    var result: Result
 ) {
     override fun toString(): String {
         return "Game(id=$id, answerUser=$answerUser, answerPc=$answerPc, createdOn=$createdOn, result=$result)"

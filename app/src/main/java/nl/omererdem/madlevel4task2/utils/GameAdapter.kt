@@ -14,12 +14,11 @@ import nl.omererdem.madlevel4task2.model.Result
 class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun databind(game: Game) {
-            val resulttxt = Result.findResult(game.result)
             val pcResultImage = Handmove.findHandmove(game.answerPc)
             val userResultImage = Handmove.findHandmove(game.answerUser)
-            if (resulttxt !== null && pcResultImage != null && userResultImage != null) {
+            if (pcResultImage != null && userResultImage != null) {
                 itemView.tvDate.text = game.createdOn.toString()
-                itemView.tvResult.text = resulttxt.getString()
+                itemView.tvResult.text = game.result.getString()
                 itemView.imgPcResult.setImageResource(pcResultImage.getImage())
                 itemView.imgYouResult.setImageResource(userResultImage.getImage())
             } else {
