@@ -7,10 +7,6 @@ import java.util.*
 
 @Entity(tableName = "gameTable")
 class Game(
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    var id: Long? = null,
-
     @ColumnInfo(name = "answer_user")
     var answerUser: Int,
 
@@ -21,7 +17,11 @@ class Game(
     var createdOn: Date,
 
     @ColumnInfo(name = "result")
-    var result: Result
+    var result: Result,
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id: Long? = null,
 ) {
     override fun toString(): String {
         return "Game(id=$id, answerUser=$answerUser, answerPc=$answerPc, createdOn=$createdOn, result=$result)"

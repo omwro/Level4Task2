@@ -2,14 +2,11 @@ package nl.omererdem.madlevel4task2.ui
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.coroutines.*
 import nl.omererdem.madlevel4task2.R

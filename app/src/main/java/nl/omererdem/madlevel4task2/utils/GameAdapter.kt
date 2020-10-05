@@ -9,7 +9,6 @@ import kotlinx.android.synthetic.main.item_history.view.*
 import nl.omererdem.madlevel4task2.R
 import nl.omererdem.madlevel4task2.model.Game
 import nl.omererdem.madlevel4task2.model.Handmove
-import nl.omererdem.madlevel4task2.model.Result
 
 class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

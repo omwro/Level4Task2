@@ -77,21 +77,21 @@ class GameFragment : Fragment() {
         val answerPc = listOf(ROCK, PAPER, SCISSOR).random()
         
         val result = gameDecider(answerUser, answerPc)
-        val game = Game(null, answerUser.getId(), answerPc.getId(), Calendar.getInstance().time, result)
+        val game = Game(answerUser.getId(), answerPc.getId(), Calendar.getInstance().time, result)
         Log.i("Play", game.toString())
         saveGame(game)
         updateView(game)
     }
 
     private fun gameDecider(answerUser: Handmove, answerPc: Handmove): Result {
-        if ((answerUser == ROCK && answerPc == SCISSOR) ||
+        return if ((answerUser == ROCK && answerPc == SCISSOR) ||
             (answerUser == PAPER && answerPc == ROCK) ||
             (answerUser == SCISSOR && answerPc == PAPER)) {
-            return Result.WON
+            Result.WON
         } else if (answerUser == answerPc) {
-            return Result.DRAW
+            Result.DRAW
         } else {
-            return Result.LOST
+            Result.LOST
         }
     }
 
