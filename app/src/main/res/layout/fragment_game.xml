@@ -79,6 +79,7 @@
             android:id="@+id/tvResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:gravity="center" />
 
         <LinearLayout
@@ -146,35 +147,64 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <ImageView
             android:id="@+id/btnRock"
             android:layout_width="0dp"
             android:layout_height="64dp"
-            android:layout_margin="4dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:background="@drawable/rock"
-            android:backgroundTint="@android:color/holo_blue_light"
-            android:backgroundTintMode="add" />
+            android:background="@android:color/holo_blue_light"
+            android:src="@drawable/rock"
+            android:contentDescription="@string/rock_image" />
 
-        <Button
+        <ImageView
             android:id="@+id/btnPaper"
             android:layout_width="0dp"
             android:layout_height="64dp"
-            android:layout_margin="4dp"
             android:layout_weight="1"
-            android:background="@drawable/paper"
-            android:backgroundTint="@android:color/holo_blue_light"
-            android:backgroundTintMode="add" />
+            android:background="@android:color/holo_blue_light"
+            android:src="@drawable/paper"
+            android:contentDescription="@string/paper_image" />
 
-        <Button
+        <ImageView
             android:id="@+id/btnScissor"
             android:layout_width="0dp"
             android:layout_height="64dp"
-            android:layout_margin="4dp"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:background="@drawable/scissors"
-            android:backgroundTint="@android:color/holo_blue_light"
-            android:backgroundTintMode="add" />
+            android:background="@android:color/holo_blue_light"
+            android:src="@drawable/scissors"
+            android:contentDescription="@string/scissor_image" />
+
+<!--        <Button-->
+<!--            android:id="@+id/btnRock"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="64dp"-->
+<!--            android:layout_margin="4dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/rock"-->
+<!--            android:backgroundTint="@android:color/holo_blue_light"-->
+<!--            android:backgroundTintMode="add" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btnPaper"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="64dp"-->
+<!--            android:layout_margin="4dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/paper"-->
+<!--            android:backgroundTint="@android:color/holo_blue_light"-->
+<!--            android:backgroundTintMode="add" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btnScissor"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="64dp"-->
+<!--            android:layout_margin="4dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/scissors"-->
+<!--            android:backgroundTint="@android:color/holo_blue_light"-->
+<!--            android:backgroundTintMode="add" />-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

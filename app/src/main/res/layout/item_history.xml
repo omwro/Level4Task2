@@ -85,5 +85,11 @@
                 android:gravity="center"
                 android:text="@string/you" />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="8dp"
+            android:background="@android:color/holo_blue_light"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

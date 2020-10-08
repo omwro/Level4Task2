@@ -2,6 +2,7 @@ package nl.omererdem.madlevel4task2.ui
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -39,15 +40,16 @@ class HistoryFragment: Fragment() {
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.appbar_history, menu)
+        val actionbar = (activity as AppCompatActivity).supportActionBar
+        if (actionbar != null) {
+            actionbar.setTitle(R.string.history_title)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.actionBackBtn -> {
-                navController.navigate(R.id.action_historyFragment_to_gameFragment)
-                return true
-            }
             R.id.actionDeleteBtn -> {
                 clearHistory()
                 return true

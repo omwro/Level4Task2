@@ -3,6 +3,7 @@ package nl.omererdem.madlevel4task2.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -46,6 +47,11 @@ class GameFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.appbar_game, menu)
+        val actionbar = (activity as AppCompatActivity).supportActionBar
+        if (actionbar != null) {
+            actionbar.setTitle(R.string.app_name)
+            actionbar.setDisplayHomeAsUpEnabled(false)
+        }
         super.onCreateOptionsMenu(menu, inflater)
     }
 
