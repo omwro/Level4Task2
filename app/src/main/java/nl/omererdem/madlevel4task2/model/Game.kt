@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
 
+// Database table object model
 @Entity(tableName = "gameTable")
 class Game(
     @ColumnInfo(name = "answer_user")

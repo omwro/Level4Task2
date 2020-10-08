@@ -1,5 +1,6 @@
 package nl.omererdem.madlevel4task2.model
 
+// All result possibilities with their meta data and a getter to find the result
 enum class Result() {
     WON {
         override fun getString(): String = "You won!"

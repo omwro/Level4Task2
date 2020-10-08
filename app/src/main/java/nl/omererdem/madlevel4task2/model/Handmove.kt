@@ -2,6 +2,7 @@ package nl.omererdem.madlevel4task2.model
 
 import nl.omererdem.madlevel4task2.R.drawable.*
 
+// All handmove possibilities with their meta data getters and a object finder
 enum class Handmove() {
     ROCK {
         override fun getImage(): Int = rock

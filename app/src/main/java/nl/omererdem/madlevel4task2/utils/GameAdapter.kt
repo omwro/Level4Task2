@@ -13,6 +13,7 @@ import nl.omererdem.madlevel4task2.model.Handmove
 class GameAdapter(private val games: List<Game>) : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun databind(game: Game) {
+            // Bind the images to the correct handmove and show other meta data on the view
             val pcResultImage = Handmove.findHandmove(game.answerPc)
             val userResultImage = Handmove.findHandmove(game.answerUser)
             if (pcResultImage != null && userResultImage != null) {

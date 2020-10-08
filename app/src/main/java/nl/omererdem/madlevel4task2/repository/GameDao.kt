@@ -3,6 +3,7 @@ package nl.omererdem.madlevel4task2.repository
 import androidx.room.*
 import nl.omererdem.madlevel4task2.model.Game
 
+// Data access object for the database table
 @Dao
 interface GameDao {
     @Query("SELECT * FROM gameTable")

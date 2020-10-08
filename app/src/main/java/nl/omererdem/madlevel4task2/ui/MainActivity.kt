@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
     }
 
+    // Return to the game fragment on the history fragment
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

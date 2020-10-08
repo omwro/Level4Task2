@@ -4,6 +4,7 @@ import androidx.room.TypeConverter
 import java.util.*
 import nl.omererdem.madlevel4task2.model.Result
 
+// Type converter calls for the dates and results
 class Converters {
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {
